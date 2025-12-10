@@ -31,7 +31,7 @@ function HomePage() {
         ? toast(`Hello ${user}`, {
             position: "top-right",
           })
-        : (removeCookie("token"), navigate("/login"));
+        : (removeCookie("token"), navigate("/"));
     };
     verifyCookie();
   }, [cookies, navigate, removeCookie]);

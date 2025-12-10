@@ -3,8 +3,8 @@ import React from 'react';
 function Pricing() {
     return ( 
         <div className='container p-4'>
-            <div className='row p-4'>
-                <div className='col-6 fs-5 p-4' style={{textAlign:"left"}}>
+            <div className='row p-4 pricing'>
+                <div className='col-6 fs-5 p-4 pricing-text' style={{textAlign:"left"}}>
                     <h1 className='fs-2'>Unbeatable pricing</h1>
                     <p className='mb-4 text-muted'>We pioneered the concept of discount broking and price transparency in India. Flat fees and no hidden charges.</p>
                          <a href="" 
@@ -14,7 +14,7 @@ function Pricing() {
                         See pricing<i class="fa-solid fa-arrow-right-long"></i>
                      </a>
                 </div>
-                <div className='col-6 p-4'>
+                <div className='col-6 p-4 pricing-text-img'>
                     <div className='row'>
                         <div className='col d-flex  align-items-center'>
                             <img src='media/images/pricing0.svg'

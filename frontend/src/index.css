@@ -70,4 +70,105 @@ code {
   border-radius: 5%;
 }
 
-/* login signup css */
+/* home award, stats section css */
+@media screen and (max-width: 1200px) {
+  .award {
+    display: flex;
+    flex-direction: column; /* Change to horizontal arrangement */
+    justify-content: center; /* Space out the columns */
+    align-items: center; /* Align content at the top */
+    width: 100%;
+    gap: 50px;
+  }
+
+  .award-img {
+    display: flex;
+    flex-direction: column; /* Change to horizontal arrangement */
+    justify-content: center; /* Space out the columns */
+    align-items: center; /* Align content at the top */
+    width: 100%;
+  }
+   .award-text {
+    display: flex;
+    flex-direction: column; /* Change to horizontal arrangement */
+    justify-content: center; /* Space out the columns */
+    align-items: center; /* Align content at the top */
+    width: 100%;
+     
+   }
+
+   .stats {
+    display: flex;
+    flex-direction: column; /* Change to horizontal arrangement */
+    justify-content: center; /* Space out the columns */
+    align-items: center; /* Align content at the top */
+    width: 100%;
+    gap: 50px;
+     
+   }
+   .stats-text {
+    display: flex;
+    flex-direction: column; /* Change to horizontal arrangement */
+    justify-content: center; /* Space out the columns */
+    align-items: center; /* Align content at the top */
+    width: 100%;
+    padding: 0;
+    
+   }
+   .stats-img {
+    display: flex;
+    flex-direction: column; /* Change to horizontal arrangement */
+    justify-content: center; /* Space out the columns */
+    align-items: center; /* Align content at the top */
+    width: 100%;
+   }
+
+   .pricing{
+    display: flex;
+    flex-direction: column; /* Change to horizontal arrangement */
+    justify-content: center; /* Space out the columns */
+    align-items: center; /* Align content at the top */
+    width: 100%;
+    gap: 50px;
+   }
+   .pricing-text {
+     display: flex;
+    flex-direction: column; /* Change to horizontal arrangement */
+    justify-content: center; /* Space out the columns */
+    align-items: center; /* Align content at the top */
+    width: 100%;
+    padding: 0;
+   }
+   .pricing-text-img {
+     display: flex;
+    flex-direction: column; /* Change to horizontal arrangement */
+    justify-content: center; /* Space out the columns */
+    align-items: center; /* Align content at the top */
+    width: 100%;
+    padding: 0;
+   }
+   .education {
+     display: flex;
+    flex-direction: column; /* Change to horizontal arrangement */
+    justify-content: center; /* Space out the columns */
+    align-items: center; /* Align content at the top */
+    width: 100%;
+    gap: 50px;
+   }
+   .education-img {
+     display: flex;
+    flex-direction: column; /* Change to horizontal arrangement */
+    justify-content: center; /* Space out the columns */
+    align-items: center; /* Align content at the top */
+    width: 100%;
+    padding: 0;
+   }
+   .education-text {
+     display: flex;
+    flex-direction: column; /* Change to horizontal arrangement */
+    justify-content: center; /* Space out the columns */
+    align-items: center; /* Align content at the top */
+    width: 100%;
+    padding: 0;
+   }
+}

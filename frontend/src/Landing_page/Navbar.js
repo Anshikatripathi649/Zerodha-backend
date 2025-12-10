@@ -37,11 +37,11 @@ function Navbar() {
            <a 
              class="nav-link" 
              aria-current="page" 
-             href="https://www.anotherreactapp.com/path"  
+             href="#"  
              target="_blank"  
              rel="noopener noreferrer"  
            >
-    Support
+    Kite
   </a>
         </li>
       </ul>
