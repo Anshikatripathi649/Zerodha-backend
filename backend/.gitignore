@@ -1,0 +1,5 @@
+# Common node modules and build folders
+/node_modules
+
+# Environment variables file (Crucial for security)
+.env
