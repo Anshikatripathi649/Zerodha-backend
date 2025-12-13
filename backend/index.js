@@ -19,7 +19,7 @@ const database_uri = process.env.MONGO_URL;
 const app = express();  
 
 app.use(cors({
-    origin: ["http://localhost:3001"], // <-- FIX 1: Set the client's origin
+    origin: ["http://localhost:3001",  "http://localhost:3000"], // <-- FIX 1: Set the client's origin
     methods: ["GET", "POST", "PUT", "DELETE"], // <-- FIX 2: Specify allowed methods
     credentials: true, // <-- FIX 3: Must be true to allow cookies
 }
