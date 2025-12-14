@@ -30,17 +30,7 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-    origin: (origin, callback) => {
-        // Allow requests with no origin (like mobile apps, postman, or curl)
-        if (!origin) return callback(null, true);
-        
-        // Check if the requesting origin is in our allowed list
-        if (allowedOrigins.includes(origin)) {
-            callback(null, true); // Allow
-        } else {
-            callback(new Error('Not allowed by CORS'), false); // Block
-        }
-    }, // <-- FIX 1: Set the client's origin
+    origin: ["http://localhost:3001", "http://localhost:3000"], // <-- FIX 1: Set the client's origin
     methods: ["GET", "POST", "PUT", "DELETE"], // <-- FIX 2: Specify allowed methods
     credentials: true, // <-- FIX 3: Must be true to allow cookies
 }
