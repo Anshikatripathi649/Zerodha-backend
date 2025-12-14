@@ -20,7 +20,7 @@ const app = express();
 
 const allowedOrigins = [
     // 1. Local Development Origins
-    // "http://localhost:3000",          // Your Main Frontend (local testing)
+    "http://localhost:3000",          // Your Main Frontend (local testing)
     "http://localhost:3001",          // Your Dashboard (local testing, if different port)
     
     // 2. Production Origins (Replace these with your actual deployed URLs!)
