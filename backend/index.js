@@ -18,8 +18,29 @@ const database_uri = process.env.MONGO_URL;
 
 const app = express();  
 
+const allowedOrigins = [
+    // 1. Local development for your frontend/dashboard (if they run on 3000 & 3001)
+    "http://localhost:3000",
+    "http://localhost:3001", 
+    
+    // 2. The FUTURE deployed URLs of your two frontends (Vercel/Netlify URLs)
+    //    You must replace these with your actual deployed URLs later!
+    // "https://your-main-frontend-app.vercel.app", 
+    // "https://your-dashboard-app.netlify.app", 
+];
+
 app.use(cors({
-    origin: ["http://localhost:3001",  "http://localhost:3000"], // <-- FIX 1: Set the client's origin
+    origin: (origin, callback) => {
+        // Allow requests with no origin (like mobile apps, postman, or curl)
+        if (!origin) return callback(null, true);
+        
+        // Check if the requesting origin is in our allowed list
+        if (allowedOrigins.includes(origin)) {
+            callback(null, true); // Allow
+        } else {
+            callback(new Error('Not allowed by CORS'), false); // Block
+        }
+    }, // <-- FIX 1: Set the client's origin
     methods: ["GET", "POST", "PUT", "DELETE"], // <-- FIX 2: Specify allowed methods
     credentials: true, // <-- FIX 3: Must be true to allow cookies
 }
