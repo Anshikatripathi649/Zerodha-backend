@@ -55,6 +55,15 @@ app.use(cookieParser());
 mongoose.connect(database_uri)
 .then(() => console.log('Connected!'));
 
+app.get("/", (req, res) => {
+    // Send a simple status message back to confirm the API is running
+    res.status(200).json({ 
+        status: "success", 
+        message: "Zerodha API is running and reachable.",
+        endpoints: ["/signup", "/login", "/allHoldings", "/newOrder"]
+    });
+});
+
 app.use("/", authRoute);
 
 app.get("/allHoldings", async(req, res) => {
