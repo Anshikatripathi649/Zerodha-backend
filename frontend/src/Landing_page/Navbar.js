@@ -33,7 +33,7 @@ function Navbar() {
          <li class="nav-item">
           <Link class="nav-link" aria-current="page" to='/support'>Support</Link>
         </li>
-         <li class="nav-item">
+         {/* <li class="nav-item">
            <a 
              class="nav-link" 
              aria-current="page" 
@@ -43,7 +43,7 @@ function Navbar() {
            >
     Kite
   </a>
-        </li>
+        </li> */}
       </ul>
       </form>
     </div>

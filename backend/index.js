@@ -31,7 +31,12 @@ app.use(express.json());
 app.use(cookieParser());
 
 mongoose.connect(database_uri)
-.then(() => console.log('Connected!'));
+.then(() => console.log('Connected!'))
+.catch((err) => console.error("MongoDB connection error:", err));
+
+app.get("/", (req, res) => {
+    res.status(200).send("Backend is running successfully!");
+});
 
 app.use("/", authRoute);
 
@@ -55,12 +60,6 @@ app.post("/newOrder", async(req, res) => {
     newOrder.save();
     res.send("Order saved!")
 });
-
-// app.get("/signup", Signup, (req, res) => {
-//     res.send("successful!");
-// });
-
-
 app.listen(PORT, () =>{
     console.log(`Server is listening on port ${PORT}`);  
 });
