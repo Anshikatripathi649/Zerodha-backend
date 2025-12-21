@@ -13,13 +13,14 @@ module.exports.Signup = async (req, res, next) => {
     const user = await UserModel.create({ email, password, username, createdAt });
     const token = createSecretToken(user._id);
     res.cookie("token", token, {
+      path: "/",
+      expires: new Date(Date.now() + 86400000),
       withCredentials: true,
       httpOnly: false,
     });
     res
       .status(201)
       .json({ message: "User signed in successfully", success: true, user });
-    next();
   } catch (error) {
     console.error(error);
      res.status(500).json({ message: "Server error" });
@@ -42,11 +43,13 @@ module.exports.Login = async (req, res, next) => {
     }
      const token = createSecretToken(user._id);
      res.cookie("token", token, {
+      path: "/",
+      secure: true,
+      sameSite: "none", // Required for cross-site cookies
        withCredentials: true,
        httpOnly: false,
      });
      res.status(201).json({ message: "User logged in successfully", success: true });
-     next()
   } catch (error) {
     console.error(error);
   }
