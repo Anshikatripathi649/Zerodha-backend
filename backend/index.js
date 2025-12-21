@@ -20,7 +20,7 @@ const app = express();
 
 app.use(cors({
     origin:  ["http://localhost:3001",
-        "https://zerodha-frontend-lime.vercel.app",
+        "https://zerodha-backend-gamma.vercel.app/",
     ], 
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],  
     credentials: true,  
