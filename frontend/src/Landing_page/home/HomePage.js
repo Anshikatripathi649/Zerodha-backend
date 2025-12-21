@@ -21,9 +21,10 @@ function HomePage() {
     const verifyCookie = async () => {
       if (!cookies.token) {
         navigate("/login");
+        return;
       }
       const { data } = await axios.post(
-          "http://localhost:3000",
+          `${API_BASE_URL}`,
         {},
         { withCredentials: true }
       );
