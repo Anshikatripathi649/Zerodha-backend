@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
  import axios from "axios";
 import { ToastContainer, toast} from "react-toastify";
 
+const API_BASE_URL = "https://zerodha-backend-gmh3.onrender.com";
 
 function Signup() {
 
@@ -34,7 +35,7 @@ function Signup() {
         e.preventDefault();
         try {
            const { data } = await axios.post(
-            "http://localhost:3000/signup", 
+           `${API_BASE_URL}`,
             {...inputValue,},
              { withCredentials: true }
         );

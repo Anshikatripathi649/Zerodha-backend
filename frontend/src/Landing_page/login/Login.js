@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
+
+const API_BASE_URL = "https://zerodha-backend-gmh3.onrender.com";
 function Login() {
 
   const navigate = useNavigate();
@@ -32,7 +34,7 @@ function Login() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/login",
+       `${API_BASE_URL}`,
         {
           ...inputValue,
         },
