@@ -33,17 +33,6 @@ function Navbar() {
          <li class="nav-item">
           <Link class="nav-link" aria-current="page" to='/support'>Support</Link>
         </li>
-         {/* <li class="nav-item">
-           <a 
-             class="nav-link" 
-             aria-current="page" 
-             href=""  
-             target="_blank"  
-             rel="noopener noreferrer"  
-           >
-    Kite
-  </a>
-        </li> */}
       </ul>
       </form>
     </div>
