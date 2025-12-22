@@ -12,49 +12,32 @@ import OpenAccounts from '../OpenAccount';
 import Education from './Education';
 
 const API_BASE_URL ="https://zerodha-backend-gmh3.onrender.com";
- 
-  
+
 function HomePage() {
   const navigate = useNavigate();
-  const [cookies, removeCookie] = useCookies(["token"]);
+  const [cookies, removeCookie] = useCookies([]);
   const [username, setUsername] = useState("");
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const verifyCookie = async () => {
-      // 1. Initial check
       if (!cookies.token) {
         navigate("/login");
         return;
       }
-
-      try {
-        const { data } = await axios.post(
+      const { data } = await axios.post(
           `${API_BASE_URL}`,
-          {},
-          { withCredentials: true }
-        );
-
-        // 2. Check the specific 'status' field from your backend
-        if (data.status) {
-          setUsername(data.user);
-          setLoading(false); // Only stop loading on SUCCESS
-          toast.success(`Hello ${data.user}`, { position: "top-right" });
-        } else {
-          // 3. If backend says token is invalid
-          removeCookie("token");
-          navigate("/login");
-        }
-      } catch (err) {
-        console.error("Verification failed:", err);
-        removeCookie("token");
-        navigate("/login");
-      }
+        {},
+        { withCredentials: true }
+      );
+      const { status, user } = data;
+      setUsername(user);
+      return status
+        ? toast(`Hello ${user}`, {
+            position: "top-right",
+          })
+        : (removeCookie("token"), navigate("/login"));
     };
-
     verifyCookie();
-  }, [navigate, removeCookie]);
-  
+  }, [cookies, navigate, removeCookie]);
   const Logout = () => {
     removeCookie("token");
     navigate("/signup");
