@@ -12,7 +12,15 @@ import OpenAccounts from '../OpenAccount';
 import Education from './Education';
 
 const API_BASE_URL ="https://zerodha-backend-gmh3.onrender.com";
-useEffect(() => {
+ 
+  
+function HomePage() {
+  const navigate = useNavigate();
+  const [cookies, removeCookie] = useCookies(["token"]);
+  const [username, setUsername] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
     const verifyCookie = async () => {
       // 1. Initial check
       if (!cookies.token) {
@@ -47,13 +55,6 @@ useEffect(() => {
     verifyCookie();
   }, [navigate, removeCookie]);
   
-function HomePage() {
-  const navigate = useNavigate();
-  const [cookies, removeCookie] = useCookies(["token"]);
-  const [username, setUsername] = useState("");
-  const [loading, setLoading] = useState(true);
-
-
   const Logout = () => {
     removeCookie("token");
     navigate("/signup");
