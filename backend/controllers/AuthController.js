@@ -14,8 +14,9 @@ module.exports.Signup = async (req, res, next) => {
     const token = createSecretToken(user._id);
     res.cookie("token", token, {
       path: "/",
+      secure: true,   // Required for Render (HTTPS)
+      sameSite: "none",
       expires: new Date(Date.now() + 86400000),
-      withCredentials: true,
       httpOnly: false,
     });
     res
@@ -46,7 +47,6 @@ module.exports.Login = async (req, res, next) => {
       path: "/",
       secure: true,
       sameSite: "none", // Required for cross-site cookies
-       withCredentials: true,
        httpOnly: false,
      });
      res.status(201).json({ message: "User logged in successfully", success: true });

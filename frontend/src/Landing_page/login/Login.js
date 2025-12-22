@@ -34,7 +34,7 @@ function Login() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-       `${API_BASE_URL}`,
+       `${API_BASE_URL}/login`,
         {
           ...inputValue,
         },
