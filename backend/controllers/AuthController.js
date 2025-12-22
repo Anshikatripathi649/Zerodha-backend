@@ -17,7 +17,7 @@ module.exports.Signup = async (req, res, next) => {
       secure: true,   // Required for Render (HTTPS)
       sameSite: "none",
       expires: new Date(Date.now() + 86400000),
-      httpOnly: false,
+      httpOnly: ture,
     });
     res
       .status(201)

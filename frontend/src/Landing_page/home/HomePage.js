@@ -11,7 +11,9 @@ import Pricing from './Pricing';
 import OpenAccounts from '../OpenAccount';
 import Education from './Education';
 
-const API_BASE_URL ="http://localhost:3000" || "https://zerodha-backend-gmh3.onrender.com";
+const API_BASE_URL = window.location.hostname === "localhost" 
+  ? "http://localhost:3000" 
+  : "https://zerodha-backend-gmh3.onrender.com";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -19,7 +21,8 @@ function HomePage() {
   const [username, setUsername] = useState("");
   useEffect(() => {
     const verifyCookie = async () => {
-      if (!cookies.token) {
+      try {
+         if (!cookies.token) {
         navigate("/login");
         return;
       }
@@ -35,6 +38,11 @@ function HomePage() {
             position: "top-right",
           })
         : (removeCookie("token"), navigate("/login"));
+        
+      }catch(err) {
+        console.log(err)
+      }
+      
     };
     verifyCookie();
   }, [cookies, navigate, removeCookie]);
