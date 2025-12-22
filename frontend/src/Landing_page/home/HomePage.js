@@ -11,7 +11,7 @@ import Pricing from './Pricing';
 import OpenAccounts from '../OpenAccount';
 import Education from './Education';
 
-const API_BASE_URL ="https://zerodha-backend-gmh3.onrender.com";
+const API_BASE_URL ="http://localhost:3000" || "https://zerodha-backend-gmh3.onrender.com";
 
 function HomePage() {
   const navigate = useNavigate();

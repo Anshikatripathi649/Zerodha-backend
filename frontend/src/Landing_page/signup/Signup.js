@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
  import axios from "axios";
 import { ToastContainer, toast} from "react-toastify";
 
-const API_BASE_URL = "https://zerodha-backend-gmh3.onrender.com";
+const API_BASE_URL = "http://localhost:3000" || "https://zerodha-backend-gmh3.onrender.com";
 
 function Signup() {
 
